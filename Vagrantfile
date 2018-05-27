@@ -59,6 +59,8 @@ Vagrant.configure("2") do |vagrant|
                     elif [ -f /jenkins/secrets/initialAdminPassword -a -f /jenkins/users/admin/config.xml ] ; then
                         sleep 5
 
+                        # Bypass the initial admin password step. Don't do this on a production system,
+                        # but on a boxed dev environment this extra step is just annoying.
                         systemctl stop docker
                         sed -i 's/<passwordHash>.*/<passwordHash><\\/passwordHash>/' /jenkins/users/admin/config.xml
                         patch /jenkins/users/admin/config.xml /vagrant/config.xml.patch
