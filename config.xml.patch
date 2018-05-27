@@ -1,0 +1,16 @@
+7a8,10
+>     <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@2.1.16">
+>       <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash"/>
+>     </com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty>
+18a22,24
+>     <org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty plugin="display-url-api@2.2.0">
+>       <providerId>default</providerId>
+>     </org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty>
+26c32
+<       <passwordHash></passwordHash>
+---
+>       <passwordHash>#jbcrypt:$2a$10$53spzvGjY1jIbpXXVrVwtuZsQAPpNOx5.zwHPKvRQl4uMKb9iLgwi</passwordHash>
+27a34,36
+>     <hudson.tasks.Mailer_-UserProperty plugin="mailer@1.21">
+>       <emailAddress>jenkins@localhost</emailAddress>
+>     </hudson.tasks.Mailer_-UserProperty>

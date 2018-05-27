@@ -1,0 +1,25 @@
+#!/bin/bash
+
+CREDENTIALS_FILE=~/.jenkins-credentials
+
+while [ ! -f $CREDENTIALS_FILE ] ; do
+    echo -n "user: "
+    read user
+    stty -echo
+    echo -n "password: "
+    read password1
+    echo
+    echo "Please repeat password"
+    echo -n "password: "
+    read password2
+    echo
+    stty echo
+    if [ "$password1" == "$password2" ] ; then
+        echo "$user:$password1" > $CREDENTIALS_FILE
+    fi
+done
+chmod 0400 $CREDENTIALS_FILE
+
+[ -f ~/jenkins-cli.jar ] || curl -s http://localhost:8080/jnlpJars/jenkins-cli.jar > ~/jenkins-cli.jar
+
+java -jar ~/jenkins-cli.jar -s http://localhost:8080/ -auth @$CREDENTIALS_FILE "$@"
